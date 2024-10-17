@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Упражнение 1</title>
+     <meta name="description" 
+    content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/typography-times" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(to top, #B6BFFF, #ffffff, #ffffff);
+	        background-attachment: scroll;
+			background-size: cover;
+	        font-family: "Montserrat", sans-serif;
+			font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+		
+        .exercise-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+		
+		.exercise-name {
+		    font-family: "Montserrat", sans-serif;
+            text-align: center;
+			color:black;
+	        font-size: clamp(40px, 4vw, 60px);
+        }
+		
+        .progress-bar {
+            width: 100%;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+		
+        .progress {
+            height: 20px;
+            width: 0;
+            background-color: #B6BFFF; /* Change color here */
+            transition: width 1s linear;
+        }
+		
+		.timer {
+		color: #1c2bf8;
+	    font-family: 'Typography Times', sans-serif;
+        font-size: 44px;
+        font-weight: normal;
+        text-align: center;
+	    padding: 5px;
+	    text-decoration: none;
+	    margin-top: 15px;
+		}
+		
+	    .image {
+         border-radius: 15px;
+		 width: 45vw;
+	     max-width: 250px;
+	     max-height: 250px;
+	     height: 45vw;
+         border: 2px solid rgba( 255, 255, 255, 0.8 );
+	 	}
+		
+	 .info-block {
+      display: flex;
+      flex-direction: row;
+	  flex-wrap: wrap;
+	  justify-content: space-evenly;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+	
+	.reg_text {
+	  color:black;
+	  font-size: clamp(20px, 4vw, 25px);
+	  font-family: "Balsamiq Sans", sans-serif;
+	}
+		
+        #finish-message {
+            display: none;
+            font-size: 24px;
+            color: green;
+			font-family: 'Typography Times', sans-serif;
+            text-align: center;
+			color:black;
+	        font-size: clamp(40px, 4vw, 60px);
+        }
+		
+        #next-page {
+            display: none;
+			box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.37 );
+			padding: 10px;
+            margin-top: 20px;
+            text-decoration: none;
+            font-size: 30px;
+            color: #1c2bf8;
+			font-family: "Montserrat", sans-serif;
+			background: #B6BFFF;
+            box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.37 );
+            backdrop-filter: blur( 8px );
+	        -webkit-backdrop-filter: blur( 8px );
+            border-radius: 10px;
+            border: 2px solid rgba( 255, 255, 255, 0.8 );
+        }
+    </style>
+</head>
+<body>
+
+    <div class="exercise-container">
+        <h1 class="exercise-name">Разминка шеи</h1>
+		  <!-- ВВЕДЕНИЕ -->
+  <footer>
+    <p class="reg_text" style="text-align: center; padding: 20px; line-height: 30px;" >Аккуратные вращения головы<br/>Вперёд - назад<br/>Влево-вправо<br/>Круговые движения</p>
+  </footer>
+        <div class="info-block">
+            <img class="image" src="../assets/exercise/1.jpg" alt="Exercise Image 1" />
+            <img class="image" src="../assets/exercise/3.jpg" alt="Exercise Image 2" />
+        </div>
+   <footer>
+    <p id="proBEL" class="reg_text" style="text-align: center; padding: 20px; line-height: 30px;" ></p>
+  </footer>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <div class="timer" id="timer">30</div>
+        <div id="finish-message">Finish!</div>
+        <a id="next-page" href="#">Следующее упражнение</a>
+    </div>
+
+    <script>
+        let timeLeft = 30; // Timer duration
+        const progressBar = document.getElementById('progress');
+        const timerDisplay = document.getElementById('timer');
+        const finishMessage = document.getElementById('finish-message');
+        const nextPage = document.getElementById('next-page');
+        const probel = document.getElementById('proBEL');
+
+        function startTimer() {
+            const timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+					progressBar.style.width = 30;
+					timerDisplay.textContent = 0;
+                    finishExercise();
+                } else {
+                    timerDisplay.textContent = timeLeft;
+                    progressBar.style.width = ((30 - timeLeft) / 30 * 100) + '%';
+                    timeLeft--;
+                }
+            }, 1000);
+        }
+
+        function finishExercise() {
+            finishMessage.style.display = 'block';
+            nextPage.style.display = 'block';
+			progressBar.style.display = 'none'
+			timerDisplay.style.display = 'none'
+			probel.style.display = 'none'
+            nextPage.href = "mon_plechi_raz.html"; // Set your next page link here
+        }
+
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
