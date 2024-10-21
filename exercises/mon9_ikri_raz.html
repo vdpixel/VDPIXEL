@@ -239,7 +239,7 @@
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
-        <div class="timer" id="timer">1 min.</div>
+        <div class="timer" id="timer">x 20</div>
         <div id="finish-message" style="display: none;">Finish!</div>
         <a id="next-page" href="#" style="display: none;">Следующее упражнение</a>
         
@@ -257,7 +257,7 @@
     </div>
 
     <script>
-        let timeLeft = 60; // Main timer duration
+        let timeLeft = 0; // Main timer duration
         let countdownTime = 10; // Countdown duration
         const progressBar = document.getElementById('progress');
         const timerDisplay = document.getElementById('timer');
@@ -280,7 +280,7 @@
         }
 
         function startTimer() {
-            timeLeft = 60; // Reset main timer
+            timeLeft = 0; // Reset main timer
             timerDisplay.textContent = timeLeft; // Display the initial time
             const timerInterval = setInterval(() => {
                 if (timeLeft <= 0) {
@@ -290,7 +290,7 @@
                     finishExercise();
                 } else {
                     timerDisplay.textContent = timeLeft;
-                    progressBar.style.width = ((60 - timeLeft) / 60 * 100) + '%';
+                    progressBar.style.width = ((0 - timeLeft) / 0 * 100) + '%';
                     timeLeft--;
                 }
             }, 1000);
