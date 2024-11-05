@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Упражнение 11</title>
+     <meta name="description" 
+    content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/icons/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/icons/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/icons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/icons/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/icons/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/icons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/icons/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/icons/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="assets/icons/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="assets/icons/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="assets/icons/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="assets/icons/favicon-128.png" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="assets/icons/mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="assets/icons/mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="assets/icons/mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="assets/icons/mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="assets/icons/mstile-310x310.png" />
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/typography-times" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(to top, #B6BFFF, #ffffff, #ffffff);
+	        background-attachment: scroll;
+			background-size: cover;
+	        font-family: "Montserrat", sans-serif;
+			font-family: Arial, sans-serif;
+            height: 100%;
+        }
+		
+        .exercise-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+		
+		.exercise-name {
+		    font-family: "Montserrat", sans-serif;
+            text-align: center;
+			color:black;
+	        font-size: clamp(40px, 4vw, 60px);
+        }
+		
+        .progress-bar {
+            width: 100%;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+		
+        .progress {
+            height: 20px;
+            width: 0;
+            background-color: #B6BFFF; /* Change color here */
+            transition: width 1s linear;
+        }
+		
+		.timer {
+		color: #1c2bf8;
+	    font-family: 'Typography Times', sans-serif;
+        font-size: 44px;
+        font-weight: normal;
+        text-align: center;
+	    padding: 5px;
+	    text-decoration: none;
+	    margin-top: 15px;
+		}
+		
+	    .image {
+         border-radius: 15px;
+		 width: 45vw;
+	     max-width: 250px;
+	     max-height: 250px;
+	     height: 45vw;
+         border: 2px solid rgba( 255, 255, 255, 0.8 );
+	 	}
+		
+	 .info-block {
+      display: flex;
+      flex-direction: row;
+	  flex-wrap: wrap;
+	  justify-content: space-evenly;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+	
+	.reg_text {
+	  color:black;
+	  font-size: clamp(20px, 4vw, 25px);
+	  font-family: "Balsamiq Sans", sans-serif;
+	}
+		
+        #finish-message {
+            display: none;
+            font-size: 24px;
+            color: green;
+			font-family: 'Typography Times', sans-serif;
+            text-align: center;
+			color:black;
+	        font-size: clamp(40px, 4vw, 60px);
+        }
+		
+        #next-page {
+            display: none;
+			box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.37 );
+			border: 2px solid rgba( 255, 255, 255, 0.8 );
+			padding: 10px;
+            margin-top: 20px;
+			margin-bottom: 20px;
+            text-decoration: none;
+            font-size: 30px;
+            color: #1c2bf8;
+			font-family: "Montserrat", sans-serif;
+			background: #B6BFFF;
+            box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.37 );
+			box-shadow: inset 0 0 10px #ffffff;
+            backdrop-filter: blur( 8px );
+	        -webkit-backdrop-filter: blur( 8px );
+            border-radius: 10px;
+			transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        }
+	#next-page:hover {
+	   transform: translateY(-2px);
+	} 
+	
+	.page {
+	  display: block;
+	  text-decoration: none;
+	  font-weight: normal;
+	  color: white;
+	  font-size: clamp(23px, 4vw, 30px);
+	  text-align: center;
+	  justify-content: center;
+	  padding: 35% 25%;
+	  line-height: 30px;
+	  margin: 0px;
+	  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+	  box-sizing: border-box;
+	  font-family: "Montserrat", sans-serif;
+	  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+	}	
+	
+	.start_but {
+	  display: block;
+	  background: #B6BFFF;
+	  text-decoration: none;
+	  font-weight: normal;
+	  color: black;
+	  font-style: italic;
+	  font-size: clamp(23px, 4vw, 30px);
+	  text-align: center;
+	  justify-content: center;
+	  padding: 0% 25%;
+	  margin: 0px;
+	  border-radius: 15px;
+	  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+	  box-sizing: border-box;
+	  font-family: "Montserrat", sans-serif;
+	  max-height: 250px;
+	  height: 28vw;
+	  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+	  box-shadow: inset 0 0 10px #ffffff;
+	}
+	
+	.page:hover {
+	  color: #1c2bf8;
+	}
+	
+	.image-post {
+      position: relative;
+	  display: flex;
+	  align-items: center;
+	  background: rgba( 255, 255, 255, 0.1 );
+      box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.37 );
+      backdrop-filter: blur( 8px );
+	  -webkit-backdrop-filter: blur( 8px );
+      border-radius: 10px;
+      border: 2px solid rgba( 255, 255, 255, 0.8 );
+      justify-content: center;
+	  margin: 15px;
+	  display: flex;
+	  border-radius: 15px;
+	  width: 28vw;
+	  max-width: 250px;
+	  max-height: 250px;
+	  height: 28vw;
+	  flex-grow: 1;
+	  box-shadow: inset 0 0 10px #ffffff;
+	  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    }
+	
+    .image-post:hover {
+	   transform: translateY(-2px);
+	}    
+	
+	.info-block {
+      display: flex;
+      flex-direction: row;
+	  flex-wrap: wrap;
+	  justify-content: space-evenly;
+      max-width: 100%;
+      margin: 0 auto;
+	  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    }
+    </style>
+</head>
+<body>
+    <div class="exercise-container">
+        <h1 class="exercise-name">Приседания</h1>
+        <!-- ВВЕДЕНИЕ -->
+        <footer>
+            <p class="reg_text" style="text-align: center; padding: 20px; line-height: 30px;">
+                Классические приседания, ноги на ширине плеч<br/>Спина ровная, угол сгиба ног в колене 90 градусов
+            </p>
+        </footer>
+        <div class="info-block">
+            <img class="image" src="../assets/exercise/13.jpg" alt="Exercise Image 1" />
+            <img class="image" src="../assets/exercise/14.jpg" alt="Exercise Image 2" />
+        </div>
+        <footer>
+            <p id="proBEL" class="reg_text" style="text-align: center; padding: 20px; line-height: 30px;"></p>
+        </footer>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <div class="timer" id="timer">x 30</div>
+        <div id="finish-message" style="display: none;">Finish!</div>
+        <a id="next-page" href="#" style="display: none;">Следующее упражнение</a>
+        
+		<div class="info-block">
+		
+		<div class="image-post">
+          <a class="page" href="../day/mon.html">К программе</a>
+        </div>
+		
+		<div class="image-post">
+		<button class="start_but" id="start-button">Начать через 10 сек.</button>
+		</div>
+		</div>
+	 
+    </div>
+
+    <script>
+        let timeLeft = 0; // Main timer duration
+        let countdownTime = 10; // Countdown duration
+        const progressBar = document.getElementById('progress');
+        const timerDisplay = document.getElementById('timer');
+        const finishMessage = document.getElementById('finish-message');
+        const nextPage = document.getElementById('next-page');
+        const probel = document.getElementById('proBEL');
+        const startButton = document.getElementById('start-button');
+
+        function startCountdown() {
+            startButton.disabled = true; // Disable the start button
+            const countdownInterval = setInterval(() => {
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+                    startTimer(); // Start the main timer after countdown
+                } else {
+                    timerDisplay.textContent = countdownTime; // Display countdown
+                    countdownTime--;
+                }
+            }, 1000);
+        }
+
+        function startTimer() {
+            timeLeft = 0; // Reset main timer
+            timerDisplay.textContent = timeLeft; // Display the initial time
+            const timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    progressBar.style.width = '100%'; // Fill progress bar
+                    timerDisplay.textContent = 0;
+                    finishExercise();
+                } else {
+                    timerDisplay.textContent = timeLeft;
+                    progressBar.style.width = ((0 - timeLeft) / 0 * 100) + '%';
+                    timeLeft--;
+                }
+            }, 1000);
+        }
+
+        function finishExercise() {
+            finishMessage.style.display = 'block';
+            nextPage.style.display = 'block';
+            progressBar.style.display = 'none';
+            timerDisplay.style.display = 'none';
+            probel.style.display = 'none';
+            nextPage.href = "thu13_skruch.html"; // Set your next page link here
+        }
+
+        startButton.addEventListener('click', startCountdown); // Add event listener to start button
+    </script>
+</body>
+</html>
